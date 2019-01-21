@@ -1,0 +1,176 @@
+
+fieldset {
+  height: 100px;
+}
+
+/* ----------- Text field ------------ */
+.mds-text-field {
+  position: relative;
+  width: 280px;
+  height: 56px;
+  font-family: 'Roboto', sans-serif;
+  color: #00000099;
+  font-size: 16px;
+}
+
+.mds-text-field__input {
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+ /* Code for the fake placeholder */
+.mds-text-field__p {
+  position:absolute;
+  top: 3px;
+  left: 5px;
+  z-index: -1;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+/* Making the placeholder disappear when the user clicks on the input field */
+.mds-text-field__input:focus ~ .mds-text-field__p {
+  display: none;
+}
+
+/* ----------- Switch ------------ */
+.mds-switch {
+  position: relative;
+  top: 15px;
+  left: 10px;
+  cursor: pointer;
+}
+
+/* Hide default HTML checkbox */
+.mds-switch__input {
+  position: relative;
+  display: none;
+}
+
+/* New checkbox = the switch */
+.mds-switch__div1 {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 36px;
+  height: 15px;
+  border-radius: 15px;
+  background-color: grey;
+}
+
+/* The toggle */
+.mds-switch__div2 {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.098), 0 1px 5px 0 rgba(0, 0, 0, 0.084);
+  background-color: #FFFFFF;
+}
+
+/* Making the switch change color */
+.mds-switch__input:checked ~ .mds-switch__div1 {
+  background-color: #6200EE89;
+}
+
+/* Making the toggle move and change color */
+.mds-switch__input:checked ~ .mds-switch__div2 {
+  background-color: #6200EEFF;
+  transform: translate(80%, -50%);
+}
+
+/* ----------- Checkbox ------------ */
+.mds-checkbox {
+  position: relative;
+  color: white;
+  cursor: pointer;
+}
+
+.mds-checkbox__input {
+  position: absolute;
+  display: none;
+}
+
+.mds-checkbox__div {
+  position: absolute;
+  box-sizing: border-box;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #0000008A;
+}
+
+.mds-checkbox__div__icon {
+  display: none;
+}
+
+/* Changing the background color when checked*/
+.mds-checkbox__input:checked ~ .mds-checkbox__div{
+  background-color: #6200EEFF;
+  border: none;
+}
+
+.mds-checkbox__input:checked ~ .mds-checkbox__div > .mds-checkbox__div__icon {
+  display: inline;
+}
+
+/* ----------- Radio button ------------ */
+.mds-radio {
+  position: relative;
+}
+
+.mds-radio__input {
+  position: absolute;
+  display: none;
+}
+
+.mds-radio__div1 {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  box-sizing: border-box;
+  border: 2px solid #00000089;
+  border-radius: 20px;
+}
+
+.mds-radio__div2 {
+  display: none;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #6200EEFF;
+  border-radius: 10px;
+}
+
+/* Changing appearance when the radio button is checked */
+.mds-radio__input:checked ~ .mds-radio__div1 > .mds-radio__div2 {
+  display: inline;
+}
+
+.mds-radio__input:checked ~ .mds-radio__div1 {
+  border: 2px solid #6200EEFF;
+}
+
+/* Testing bigger buttons
+.mds-radio__div1--big {
+  width: 40px;
+  height: 40px;
+}
+
+.mds-radio__div2--big {
+  width: 20px;
+  height: 20px;
+} */
+
+/* Making the radio buttons appear under each other */
+.radiobutton-space {
+  width: 100%;
+  height: 25px;
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Demo page - User interface component library</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"  rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="mds.css">
+    <script type="text/javascript" src="mds.js"></script>
+  </head>
+  <body>
+    <h1>UI component library - demo page</h1>
+    <form>
+      <!-- Text field -->
+      <fieldset>
+        <legend>Text field</legend>
+          <div class="mds-text-field">
+            <input class="mds-text-field__input" type="text" name="name">
+            <p class="mds-text-field__p">Some placeholder text</p> <!-- Holder for the placeholder text -->
+          </div>
+      </fieldset>
+      <!-- Switch -->
+      <fieldset>
+        <legend>Switch</legend>
+        <label class="mds-switch">
+          <input class="mds-switch__input" type="checkbox" name="news" value="international">
+          <div class="mds-switch__div1"></div>
+          <div class="mds-switch__div2"></div>
+        </label>
+      </fieldset>
+      <!-- Checkbox -->
+      <fieldset>
+        <legend>Checkbox</legend>
+        <label class="mds-checkbox">
+          <input class="mds-checkbox__input" type="checkbox">
+          <div class="mds-checkbox__div">
+            <i class="material-icons mds-checkbox__div__icon">check</i>
+          </div>
+        </label>
+      </fieldset>
+      <!-- Radio buttons -->
+      <fieldset>
+        <legend>Radio buttons</legend>
+          <div class='radiobutton-space'>
+            <label class='mds-radio'>
+              <input class="mds-radio__input" type="radio" name="choices" value="1">
+              <div class="mds-radio__div1">
+                <div class="mds-radio__div2"> </div>
+              </div>
+            </label>
+          </div>
+          <div class='radiobutton-space'>
+            <label class='mds-radio'>
+              <input class="mds-radio__input" type="radio" name="choices" value="2">
+              <div class="mds-radio__div1">
+                <div class="mds-radio__div2"> </div>
+              </div>
+            </label>
+          </div>
+          <div class='radiobutton-space'>
+            <label class='mds-radio mds-radio--big'>
+              <input class="mds-radio__input" type="radio" name="choices" value="3">
+              <div class="mds-radio__div1 mds-radio__div1--big">
+                <div class="mds-radio__div2 mds-radio__div2--big"> </div>
+              </div>
+            </label>
+          </div>
+          <div class='radiobutton-space'>
+            <label class='mds-radio mds-radio--big'>
+              <input class="mds-radio__input" type="radio" name="choices" value="4">
+              <div class="mds-radio__div1 mds-radio__div1--big">
+                <div class="mds-radio__div2 mds-radio__div2--big"> </div>
+              </div>
+            </label>
+          </div>
+      </fieldset>
+    </form>
+  </body>
+</html>
