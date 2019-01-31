@@ -1,39 +1,103 @@
 
+/* ----------- General styling ------------ */
+
 fieldset {
   height: 100px;
+}
+
+/* Making the radio buttons appear under each other */
+.radiobutton-space {
+  width: 100%;
+  height: 25px;
+}
+
+.disable-button {
+  margin: 10px;
 }
 
 /* ----------- Text field ------------ */
 .mds-text-field {
   position: relative;
+  display: flex; /* <----- This is to make the animated border centered */
+  justify-content: center; /* <----- This is to make the animated border centered */
+  box-sizing: border-box;
   width: 280px;
   height: 56px;
   font-family: 'Roboto', sans-serif;
-  color: #00000099;
   font-size: 16px;
+  color: #00000099;
+  background-color: #00000015;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom: 1px solid #00000050;
 }
 
 .mds-text-field__input {
   background: transparent;
+  box-sizing: border-box;
   width: 100%;
   height: 100%;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-}
-
- /* Code for the fake placeholder */
-.mds-text-field__p {
-  position:absolute;
-  top: 3px;
-  left: 5px;
-  z-index: -1;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  padding-top: 16px;
   padding-left: 12px;
   padding-right: 12px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #000000DE;
 }
 
-/* Making the placeholder disappear when the user clicks on the input field */
-.mds-text-field__input:focus ~ .mds-text-field__p {
-  display: none;
+ /* Code for the fake placeholder (the label) */
+.mds-text-field__label {
+  height: 40px;
+  position: absolute;
+  top: 0;
+  left: 0; /* <----- This is to avoid the label being affected by the flexbox styling */
+  display: flex;
+  align-items: flex-end;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-top: 0;
+  margin-bottom: 0;
+  z-index: -1;
+}
+
+/* Hover */
+.mds-text-field__input:hover {
+  cursor: pointer;
+}
+
+/* Making the label shrink when the user clicks on the input field */
+.mds-text-field__input:focus ~ .mds-text-field__label {
+  height: 20px;
+  font-size: 12px;
+  color: #6200EE;
+  transition: height 500ms, font-size 500ms;
+}
+
+/* Border animation */
+.mds-text-field__border {
+  position: absolute;
+  top: 54px;
+  width: 0;
+  height: 2px;
+  background-color: #6200EE;
+}
+
+.mds-text-field__input:focus ~ .mds-text-field__border {
+  width: 100%;
+  transition: width 500ms;
+}
+
+/* Disabled state */
+.mds-text-field--disabled {
+  border: none;
+  color: #00000050;
+}
+
+.mds-text-field--disabled .mds-text-field__input {
+  cursor: default;
 }
 
 /* ----------- Switch ------------ */
@@ -51,18 +115,18 @@ fieldset {
 }
 
 /* New checkbox = the switch */
-.mds-switch__div1 {
+.mds-switch__switch {
   position: absolute;
   top: 50%;
   transform: translate(0, -50%);
   width: 36px;
   height: 15px;
   border-radius: 15px;
-  background-color: grey;
+  background-color: #999999;
 }
 
-/* The toggle */
-.mds-switch__div2 {
+/* The toggle, or thumb */
+.mds-switch__thumb {
   position: absolute;
   top: 50%;
   transform: translate(0, -50%);
@@ -74,14 +138,28 @@ fieldset {
 }
 
 /* Making the switch change color */
-.mds-switch__input:checked ~ .mds-switch__div1 {
+.mds-switch__input:checked ~ .mds-switch__switch {
   background-color: #6200EE89;
 }
 
-/* Making the toggle move and change color */
-.mds-switch__input:checked ~ .mds-switch__div2 {
+/* Making the thumb move and change color */
+.mds-switch__input:checked ~ .mds-switch__thumb {
   background-color: #6200EEFF;
   transform: translate(80%, -50%);
+  transition: transform 500ms;
+}
+
+/* Disabled switch */
+.mds-switch--disabled {
+  cursor: default;
+}
+
+.mds-switch--disabled .mds-switch__switch {
+  background-color: #00000015;
+}
+
+.mds-switch--disabled .mds-switch__thumb {
+  background-color: rgb(250, 250, 250);
 }
 
 /* ----------- Checkbox ------------ */
@@ -96,31 +174,45 @@ fieldset {
   display: none;
 }
 
-.mds-checkbox__div {
+.mds-checkbox__fakeCheckbox {
   position: absolute;
   box-sizing: border-box;
-  width: 24px;
-  height: 24px;
-  border: 1px solid #0000008A;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #0000008A;
+  border-radius: 2px;
 }
 
-.mds-checkbox__div__icon {
+.mds-checkbox__fakeCheckbox__icon {
   display: none;
+  font-size: 18px;
 }
 
 /* Changing the background color when checked*/
-.mds-checkbox__input:checked ~ .mds-checkbox__div{
+.mds-checkbox__input:checked ~ .mds-checkbox__fakeCheckbox{
   background-color: #6200EEFF;
   border: none;
 }
 
-.mds-checkbox__input:checked ~ .mds-checkbox__div > .mds-checkbox__div__icon {
+/* Showing icon when checked */
+.mds-checkbox__input:checked ~ .mds-checkbox__fakeCheckbox > .mds-checkbox__fakeCheckbox__icon {
   display: inline;
+}
+
+/* Disabled checkbox */
+.mds-checkbox--disabled .mds-checkbox__fakeCheckbox {
+  border-color: #0000005A;
+}
+
+.mds-checkbox--disabled .mds-checkbox__input:checked ~ .mds-checkbox__fakeCheckbox {
+  border-color: #0000005A;
+  background-color: #0000005A;
 }
 
 /* ----------- Radio button ------------ */
 .mds-radio {
   position: relative;
+  cursor: pointer;
 }
 
 .mds-radio__input {
@@ -128,7 +220,7 @@ fieldset {
   display: none;
 }
 
-.mds-radio__div1 {
+.mds-radio__fakeButton {
   position: absolute;
   display: flex;
   justify-content: center;
@@ -140,7 +232,7 @@ fieldset {
   border-radius: 20px;
 }
 
-.mds-radio__div2 {
+.mds-radio__fakeButton__dot {
   display: none;
   position: absolute;
   width: 10px;
@@ -150,27 +242,23 @@ fieldset {
 }
 
 /* Changing appearance when the radio button is checked */
-.mds-radio__input:checked ~ .mds-radio__div1 > .mds-radio__div2 {
+.mds-radio__input:checked ~ .mds-radio__fakeButton > .mds-radio__fakeButton__dot {
   display: inline;
 }
 
-.mds-radio__input:checked ~ .mds-radio__div1 {
+.mds-radio__input:checked ~ .mds-radio__fakeButton {
   border: 2px solid #6200EEFF;
 }
 
-/* Testing bigger buttons
-.mds-radio__div1--big {
-  width: 40px;
-  height: 40px;
+/* Disabled radio button */
+.mds-radio--disabled .mds-radio__fakeButton {
+  border-color: #0000005A;
 }
 
-.mds-radio__div2--big {
-  width: 20px;
-  height: 20px;
-} */
+.mds-radio--disabled .mds-radio__input:checked ~ .mds-radio__fakeButton {
+  border-color: #0000005A;
+}
 
-/* Making the radio buttons appear under each other */
-.radiobutton-space {
-  width: 100%;
-  height: 25px;
+.mds-radio--disabled .mds-radio__input:checked ~ .mds-radio__fakeButton .mds-radio__fakeButton__dot {
+  background-color: #0000005A;
 }

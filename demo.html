@@ -16,16 +16,38 @@
         <legend>Text field</legend>
           <div class="mds-text-field">
             <input class="mds-text-field__input" type="text" name="name">
-            <p class="mds-text-field__p">Some placeholder text</p> <!-- Holder for the placeholder text -->
+            <p class="mds-text-field__label">Label</p>
+            <div class="mds-text-field__border"></div>
           </div>
       </fieldset>
+      <!-- Disabled text field -->
+      <fieldset>
+        <legend>Disabled text field</legend>
+          <div class="mds-text-field mds-text-field--disabled">
+            <input disabled class="mds-text-field__input" type="text" name="name">
+            <p class="mds-text-field__label">Label</p> <!-- Holder for the placeholder text -->
+            <div class="mds-text-field__border"></div> <!-- The animated border -->
+          </div>
+      </fieldset>
+      <script type="text/javascript">
+        mds.textField(document.querySelector('.mds-text-field'));
+      </script>
       <!-- Switch -->
       <fieldset>
         <legend>Switch</legend>
         <label class="mds-switch">
           <input class="mds-switch__input" type="checkbox" name="news" value="international">
-          <div class="mds-switch__div1"></div>
-          <div class="mds-switch__div2"></div>
+          <div class="mds-switch__switch"></div>
+          <div class="mds-switch__thumb"></div>
+        </label>
+      </fieldset>
+      <!-- Disabled switch -->
+      <fieldset>
+        <legend>Disabled switch</legend>
+        <label class="mds-switch mds-switch--disabled">
+          <input class="mds-switch__input" type="checkbox" name="news" value="international" disabled>
+          <div class="mds-switch__switch"></div>
+          <div class="mds-switch__thumb"></div>
         </label>
       </fieldset>
       <!-- Checkbox -->
@@ -33,8 +55,18 @@
         <legend>Checkbox</legend>
         <label class="mds-checkbox">
           <input class="mds-checkbox__input" type="checkbox">
-          <div class="mds-checkbox__div">
-            <i class="material-icons mds-checkbox__div__icon">check</i>
+          <div class="mds-checkbox__fakeCheckbox">
+            <i class="material-icons mds-checkbox__fakeCheckbox__icon">check</i>
+          </div>
+        </label>
+      </fieldset>
+      <!-- Disabled checkbox -->
+      <fieldset>
+        <legend>Disabled checkbox</legend>
+        <label class="mds-checkbox mds-checkbox--disabled">
+          <input class="mds-checkbox__input" type="checkbox">
+          <div class="mds-checkbox__fakeCheckbox">
+            <i class="material-icons mds-checkbox__fakeCheckbox__icon">check</i>
           </div>
         </label>
       </fieldset>
@@ -44,32 +76,36 @@
           <div class='radiobutton-space'>
             <label class='mds-radio'>
               <input class="mds-radio__input" type="radio" name="choices" value="1">
-              <div class="mds-radio__div1">
-                <div class="mds-radio__div2"> </div>
+              <div class="mds-radio__fakeButton">
+                <div class="mds-radio__fakeButton__dot"> </div>
               </div>
             </label>
           </div>
           <div class='radiobutton-space'>
             <label class='mds-radio'>
               <input class="mds-radio__input" type="radio" name="choices" value="2">
-              <div class="mds-radio__div1">
-                <div class="mds-radio__div2"> </div>
+              <div class="mds-radio__fakeButton">
+                <div class="mds-radio__fakeButton__dot"> </div>
+              </div>
+            </label>
+          </div>
+      </fieldset>
+      <!-- Disabled radio buttons -->
+      <fieldset>
+        <legend>Disabled radio buttons</legend>
+          <div class='radiobutton-space'>
+            <label class='mds-radio mds-radio--disabled'>
+              <input class="mds-radio__input" type="radio" name="choices" value="1">
+              <div class="mds-radio__fakeButton">
+                <div class="mds-radio__fakeButton__dot"> </div>
               </div>
             </label>
           </div>
           <div class='radiobutton-space'>
-            <label class='mds-radio mds-radio--big'>
-              <input class="mds-radio__input" type="radio" name="choices" value="3">
-              <div class="mds-radio__div1 mds-radio__div1--big">
-                <div class="mds-radio__div2 mds-radio__div2--big"> </div>
-              </div>
-            </label>
-          </div>
-          <div class='radiobutton-space'>
-            <label class='mds-radio mds-radio--big'>
-              <input class="mds-radio__input" type="radio" name="choices" value="4">
-              <div class="mds-radio__div1 mds-radio__div1--big">
-                <div class="mds-radio__div2 mds-radio__div2--big"> </div>
+            <label class='mds-radio mds-radio--disabled'>
+              <input class="mds-radio__input" type="radio" name="choices" value="2">
+              <div class="mds-radio__fakeButton">
+                <div class="mds-radio__fakeButton__dot"> </div>
               </div>
             </label>
           </div>
